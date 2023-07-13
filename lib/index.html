@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Ruster Burner</title>
+	<style>
+		* {
+			margin: 0;
+			padding: 0;
+			box-sizing: border-box;
+		}
+
+		body {
+			width: 100vw;
+			height: 100vh;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			background: rgba(0, 0, 0, 0.9);
+		}
+
+		button {
+			padding: 10px 15px;
+			border-radius: 12px;
+			border: none;
+			background: linear-gradient(45deg, #10de96, #108fde);
+			filter: blur(8px);
+			transform: scale(120%);
+			cursor: pointer;
+			transition: all 300ms ease;
+		}
+
+		button:hover {
+			filter: blur(0px);
+		}
+	</style>
+</head>
+<body>
+	<button id='clicker'>Click Me!</button>
+</body>
+<script>
+	document.getElementById('clicker').onclick = () => {
+		pywebview.api.runner().then((response) => {
+			if (response.exit == 1) {
+				alert('Succesfull')
+			}
+			else {
+				alert('oops ...')
+			}
+		})
+	}
+</script>
+</html>
